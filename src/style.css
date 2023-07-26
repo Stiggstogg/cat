@@ -1,12 +1,12 @@
 canvas {
-    background-color: blue;
+    background-color: black;
     padding: 0;
     margin: auto;
     display: block;
     width: 100%;
-    max-width: 1000px
+    max-width: 500px;
 }
 
 body {
-    background-color: black;
+    background-color: grey;
 }

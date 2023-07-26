@@ -1,32 +1,46 @@
 // imports
 import './style.css'
-import { init, Sprite, GameLoop } from "kontra";
 
-console.log('Hello world!');
+// imports: kontra and loop
+import {GameLoop, init, initGamepad, initKeys} from 'kontra';
 
-// initialize
-let { canvas, context } = init();
+// imports: images
 
-let sprite: Sprite = Sprite({
-    x: 100,
-    y: 80,
-    color: 'red',
-    width: 20,
-    height: 40,
-    dx: 2
-});
+// import sprite instances
+import SceneManager from "./Scenes/sceneManager.ts";
+import LoadingScene from "./Scenes/loadingScene.ts";
+import GameScene from "./Scenes/gameScene.ts";
 
-let loop: GameLoop = GameLoop({
+// initialize kontra
+init();
+initKeys();
+initGamepad();
+
+// create scenes
+const loadingScene = new LoadingScene('loading');
+const gameScene = new GameScene('game');
+
+// create scene manager
+export let sceneManager = new SceneManager([loadingScene, gameScene]);
+
+// game loop
+let loop = GameLoop({
+
+    // update
     update: function(): void {
-        sprite.update();
 
-        if (sprite.x > canvas.width) {
-            sprite.x = -sprite.width;
-        }
+        sceneManager.currentScene.update();
+
     },
+
+    // render
     render: function(): void {
-        sprite.render();
+
+        sceneManager.currentScene.render();
+
     }
+
 });
 
+// start loop
 loop.start();
