@@ -1,7 +1,7 @@
 {
   "name": "cat",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,6 +13,7 @@
     "vite": "^4.4.0"
   },
   "dependencies": {
-    "kontra": "^9.0.0"
+    "kontra": "^9.0.0",
+    "zzfx": "^1.2.0"
   }
 }

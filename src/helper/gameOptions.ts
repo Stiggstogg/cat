@@ -7,5 +7,5 @@ export const gameOptions = {
 
     // gun options
     gunFireRate: 5,     // fire rate of the gun in 1 / s
-    shotSpeed: 2,        // speed of the shots
+    bulletSpeed: 2,        // speed of the shots
 }
